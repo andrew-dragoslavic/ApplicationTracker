@@ -6,6 +6,7 @@ import json
 import re
 import pandas as pd
 import openpyxl
+from config import username, password
 
 # Initialize the text-generation pipeline
 model_id = "meta-llama/Llama-3.2-3B-Instruct"
@@ -15,6 +16,11 @@ pipe = pipeline(
     torch_dtype=torch.bfloat16,
     device_map="auto",
 )
+
+username = username
+password = password
+
+print(username, password)
 
 # System role to define the task
 system_prompt = (
@@ -27,8 +33,6 @@ system_prompt = (
 # Combine the system prompt and the email content
 # Generate output
 
-username = 'andrew.dragoslavic@gmail.com'
-password = 'veol sbwu wgat mjyw' #App Password
 
 imap_server = 'imap.gmail.com' # Connects to gmail
 
